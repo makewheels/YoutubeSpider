@@ -50,8 +50,8 @@ public class YoutubeUtil {
         System.setProperty("https.proxyHost", "127.0.0.1");
         System.setProperty("https.proxyPort", "1080");
 
-        YouTube youtubeService = getService();
-        YouTube.Playlists.List request = youtubeService.playlists()
+        YouTube youtube = getService();
+        YouTube.Playlists.List request = youtube.playlists()
                 .list("snippet");
         PlaylistListResponse response = request.setKey(DEVELOPER_KEY)
                 .setChannelId("UCqZQJ4600a9wIfMPbYc60OQ")
@@ -62,7 +62,7 @@ public class YoutubeUtil {
         List<Playlist> items = response.getItems();
         for (Playlist playlist : items) {
             String playlistId = playlist.getId();
-            YouTube.PlaylistItems.List itemResponseRequest = youtubeService.playlistItems()
+            YouTube.PlaylistItems.List itemResponseRequest = youtube.playlistItems()
                     .list("snippet");
             PlaylistItemListResponse itemResponse = itemResponseRequest.setKey(DEVELOPER_KEY)
                     .setMaxResults(50L)
@@ -73,7 +73,7 @@ public class YoutubeUtil {
                 PlaylistItemSnippet snippet = video.getSnippet();
                 String videoId = snippet.getResourceId().getVideoId();
                 String title = snippet.getTitle();
-                System.out.println(videoId + " " + title);
+                System.out.println("https://www.youtube.com/watch?v=" + videoId);
             }
         }
     }
