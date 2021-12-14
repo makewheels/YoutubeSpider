@@ -1,11 +1,4 @@
-/**
- * Sample Java code for youtube.playlists.list
- * See instructions for running these code samples locally:
- * https://developers.google.com/explorer-help/guides/code_samples#java
- */
-
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
-import com.google.api.client.googleapis.json.GoogleJsonResponseException;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
@@ -19,7 +12,7 @@ import java.util.List;
 public class YoutubeUtil {
     // You need to set this value for your code to compile.
     // For example: ... DEVELOPER_KEY = "YOUR ACTUAL KEY";
-    private static final String DEVELOPER_KEY = "AIzaSyDKA_arHLwnXi3Fs16uxBvttFapA26Fy9A";
+    private static final String DEVELOPER_KEY = "AIzaSyBxqO6e8l-TIk7s9Iglvf9hzcEw1jMsvws";
 
     private static final String APPLICATION_NAME = "API code samples";
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
@@ -37,18 +30,12 @@ public class YoutubeUtil {
                 .build();
     }
 
-    /**
-     * Call function to create API service object. Define and
-     * execute API request. Print API response.
-     *
-     * @throws GeneralSecurityException, IOException, GoogleJsonResponseException
-     */
     public static void main(String[] args)
-            throws GeneralSecurityException, IOException, GoogleJsonResponseException {
+            throws GeneralSecurityException, IOException {
         System.setProperty("http.proxyHost", "127.0.0.1");
-        System.setProperty("http.proxyPort", "1080");
+        System.setProperty("http.proxyPort", "7890");
         System.setProperty("https.proxyHost", "127.0.0.1");
-        System.setProperty("https.proxyPort", "1080");
+        System.setProperty("https.proxyPort", "7890");
 
         YouTube youtube = getService();
         YouTube.Playlists.List request = youtube.playlists()
@@ -62,6 +49,7 @@ public class YoutubeUtil {
         List<Playlist> items = response.getItems();
         for (Playlist playlist : items) {
             String playlistId = playlist.getId();
+            System.out.println("playlistId = " + playlistId);
             YouTube.PlaylistItems.List itemResponseRequest = youtube.playlistItems()
                     .list("snippet");
             PlaylistItemListResponse itemResponse = itemResponseRequest.setKey(DEVELOPER_KEY)
