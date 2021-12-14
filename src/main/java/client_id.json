@@ -1,0 +1,10 @@
+{
+  "web": {
+    "client_id": "440019198375-qsjth8v3i2mo4912jj904fo19l1bv88r.apps.googleusercontent.com",
+    "project_id": "youtube-search-269822",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_secret": "7KoD93p4fk9duEssVSR1fB8j"
+  }
+}
