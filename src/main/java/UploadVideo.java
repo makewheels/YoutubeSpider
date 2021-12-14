@@ -60,7 +60,7 @@ public class UploadVideo {
         Video video = new Video();
 
         File mediaFile = new File("D:\\BaiduNetdiskDownload\\2021.12.02 曾伟婚礼\\" +
-                "男方家摄影师\\男方家摄影师-P2950153");
+                "男方家摄影师\\男方家摄影师-P2950153.MOV");
         InputStreamContent mediaContent =
                 new InputStreamContent("application/octet-stream",
                         new BufferedInputStream(new FileInputStream(mediaFile)));
